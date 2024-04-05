@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SourceRSS{% endblock %}
+
+{% block body %}
+    <h1>Create new SourceRSS</h1>
+
+    {{ include('source_rss/_form.html.twig') }}
+
+    <a href="{{ path('app_source_r_s_s_index') }}">back to list</a>
+{% endblock %}
