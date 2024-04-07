@@ -4,37 +4,34 @@
 
 {% block body %}
     <div class="container mt-3">
-<h1>SourceRSS index</h1>    
-    <div ng-app="myApp" ng-controller="SourceRSSController">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Url RSS</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        <a href="{{ path('app_source_r_s_s_new') }}" class="btn btn-primary">Nueva RSS</a>
+        <div ng-app="myApp" ng-controller="SourceRSSController">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Url RSS</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        <tr ng-controller="SourceRSSController" ng-repeat="rssDates in source_r_s_ses">
-            <td >
-                [[ rssDates.title ]]
-            </td>
-            <td >
-                [[ rssDates.url ]]
-            </td>
-            <td >
-                <button type="button" class="btn btn-primary">Left</button>
-                <button type="button" class="btn btn-primary">Middle</button>
-                <button type="button" class="btn btn-primary">Right</button>
-            </td>
-        </tr>
+                <tr ng-controller="SourceRSSController" ng-repeat="rssDates in source_r_s_ses">
+                    <td >
+                        [[ rssDates.title ]]
+                    </td>
+                    <td >
+                        [[ rssDates.url ]]
+                    </td>
+                    <td >
+                        <a ng-href="path('app_source_r_s_s_new', { 'id': rssDates.id })" class="btn btn-primary">Edit
+                        </a>
+                    </td>
+                </tr>
 
-        </tbody>
-    </table>
-    </div>
-
-    <a href="{{ path('app_source_r_s_s_new') }}">Create new</a>
+                </tbody>
+            </table>
+        </div>
     </div>
     
 {% endblock %}
@@ -43,7 +40,6 @@
     {{ parent() }}
     <script>
         app.controller('SourceRSSController', function($scope) {
-            $scope.greeting = 'Hello from AngularJS!';
             $scope.source_r_s_ses = {{ source_r_s_ses | raw }};
         });
     </script>

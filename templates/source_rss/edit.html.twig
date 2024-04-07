@@ -3,11 +3,30 @@
 {% block title %}Edit SourceRSS{% endblock %}
 
 {% block body %}
+<div class="container mt-3">
     <h1>Edit SourceRSS</h1>
 
-    {{ include('source_rss/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_source_r_s_s_index') }}">back to list</a>
-
-    {{ include('source_rss/_delete_form.html.twig') }}
+    <div class="container">
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.title) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.url) }}
+                {{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.url) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.enabled) }}
+                {{ form_widget(form.enabled, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.enabled) }}
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        {{ form_end(form) }}
+    </div>
+    <a href="{{ path('app_source_r_s_s_index') }}">Back to list</a>
+</div>
 {% endblock %}

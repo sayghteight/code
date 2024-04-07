@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SourceRSS index{% endblock %}
+
+{% block body %}
+    <div class="container mt-3">
+        <div ng-app="myApp" ng-controller="SourceRSSController">
+            
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        app.controller('SourceRSSController', function($scope) {
+            $scope.source_r_s_ses = {{ source_r_s_ses | raw }};
+        });
+    </script>
+{% endblock %}
+
